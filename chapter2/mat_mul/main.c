@@ -9,12 +9,13 @@ void main(){
     int b[3][4] = {{1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}};
     int c[4][4];
     mat_mul(a, b, c);
+    puts("c = ");
     printMat(c);
 }
 
 void mat_mul(const int a[4][3], const int b[3][4], int c[4][4]){ 
     for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; i++){
+        for(int j = 0; j < 4; j++){
             c[i][j] = getMatElement(a ,b , i, j);
         }
     }
@@ -31,8 +32,8 @@ int getMatElement(const int a[4][3], const int b[3][4], int line, int row){
 void printMat(const int c[4][4]){
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
-            printf("%d ", c[i][j]);
+            printf("%3d ", c[i][j]);
         }
-        printf("\n");
+        puts("");
     }
 }
