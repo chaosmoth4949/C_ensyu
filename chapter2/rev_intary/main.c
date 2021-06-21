@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void rev_intary(int v[], int n);
-void printArray(int v[], int n);
+void printArray(int v[], int n); // 配列の中身を表示する
 
 void main(){
     int v[5] = {1, 2, 3, 4, 5};
