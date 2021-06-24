@@ -15,23 +15,7 @@ int main(){
     printf("global arg : ");
     printDoubleArray(glo, n_glo);
     generateStaticArg();
-    int n_sta = sizeof(sta) / sizeof(sta[0]);
-    printf("static arg : ");
-    printDoubleArray(sta, n_sta);
 }
-
-/*
-void all_plusOne(double v[], int n){
-    for(int i = 0; i < n; i++){
-        glo[i] += 1.0;
-    }
-    printDoubleArray(glo, n);
-    counter ++;
-    if(counter < 5) {
-        all_plusOne(glo, n);
-    }
-}
-*/
 
 void printDoubleArray(double v[], int n){
     for(int i = 0; i < n; i++){
