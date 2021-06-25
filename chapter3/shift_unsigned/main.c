@@ -16,6 +16,9 @@ void main(){
 }
 
 unsigned int exponentiation(unsigned int value, unsigned int n){
+    if(n = 0) {
+        return 1;
+    }
     for(int i = 0; i < n - 1 ; i++){
         value *= value;
     }
