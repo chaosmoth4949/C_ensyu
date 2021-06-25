@@ -15,7 +15,6 @@ void main(){
 void print_bits(unsigned int x){
     unsigned int origin_x = x;
     int n_bits = getNumbersOfBits(x);
-    printf("n_bit : %d\n",n_bits);
     int j = 0;
     unsigned int bits[n_bits];
 
@@ -29,32 +28,32 @@ void print_bits(unsigned int x){
         j++;
     }
     printf("%u の内部ビットは ", origin_x);
-    printArray(bits, j + 1);
+    printArray(bits, j);
 }
 
 int getNumbersOfBits(unsigned int x){
     int counter = 1;
-    if(x <= 1) {
-        return 1;
-    } else {
-        for(int i = 1; i <= 16; i++){
-            if(x >= exponentiation(2, i)){
-                counter ++;
-            } else {
-                break;
-            }
+    for(int i = 1; i <= 16; i++){
+        if(x >= exponentiation(2, i)){
+            counter ++;
+        } else {
+            break;
         }
-    }   
-    printf("number of bits : %d\n", counter);
+    }
     return counter;
 }
 
 int exponentiation(int value, int n){
+    if(n == 0){
+        return 1;
+    } else if(n == 1){
+        return value;
+    }
+
     int origin_v = value;
-   
+    
     for(int i = 0; i < n-1; i++){
         value *= origin_v;
-        printf("value = %d\n",value);
     }
     return value;
 }
