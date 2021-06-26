@@ -64,11 +64,10 @@ unsigned inverse_n(unsigned x, int pos, int n){
             p[i] = 0;
         }
     }
+    puts("bits : ");
     for(int k = 0;k<n_bits;k++){
         printf("%u",p[k]);
     }
-    puts("bits : ");
-
     unsigned result = binary_to_decimal(p, n_bits);
     return result;
 }
@@ -86,7 +85,7 @@ int* decimal_to_binary(unsigned x){
     unsigned origin_x = x;
     int n_bits = getNumbersOfBits(x);
     int j = 0;
-    unsigned binary[n_bits];
+    int binary[n_bits];
     int* p;
     p = &binary[0];
 
