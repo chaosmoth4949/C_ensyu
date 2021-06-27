@@ -1,9 +1,7 @@
 #include <stdio.h>
+#define MAX_len 32
 
 void print_bits(unsigned int x);
-void printArray(int unsigned v[], int n);
-int getNumbersOfBits(unsigned int x);
-int exponentiation(int value, int n);
 
 void main(){
     unsigned int x;
@@ -13,54 +11,22 @@ void main(){
 }
 
 void print_bits(unsigned int x){
-    unsigned int origin_x = x;
-    int n_bits = getNumbersOfBits(x);
-    int j = 0;
-    unsigned int bits[n_bits];
-
-    for(int i = n_bits; i > 0; i--){
-        if(x >= exponentiation(2, i - 1)){
-            bits[j] = 1;
-            x -= exponentiation(2, i - 1);
+    unsigned int b[MAX_len];
+    int flag = 0;
+    int length;
+    for(int i = MAX_len - 1; i > 0; i--){
+        if(x / (1 << i) == 1){
+            if(flag == 0){
+                flag = 1;
+            }
+            b[MAX_len - i] = 1;
+            x = x % (1 << i);
         } else {
-            bits[j] = 0;
+            b[MAX_len - i] = 0;
         }
-        j++;
-    }
-    printf("%u の内部ビットは ", origin_x);
-    printArray(bits, j);
-}
-
-int getNumbersOfBits(unsigned int x){
-    int counter = 1;
-    for(int i = 1; i <= 16; i++){
-        if(x >= exponentiation(2, i)){
-            counter ++;
-        } else {
-            break;
+        if(flag == 1){
+            printf("%d", b[MAX_len - i]);
         }
     }
-    return counter;
-}
-
-int exponentiation(int value, int n){
-    if(n == 0){
-        return 1;
-    } else if(n == 1){
-        return value;
-    }
-
-    int origin_v = value;
-    
-    for(int i = 0; i < n-1; i++){
-        value *= origin_v;
-    }
-    return value;
-}
-
-void printArray(int unsigned v[], int n){
-    for(int i = 0; i < n; i++){
-        printf("%u",v[i]);
-    }
-    printf("\n");
+    puts("");
 }
