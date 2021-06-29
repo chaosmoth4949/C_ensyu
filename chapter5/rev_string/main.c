@@ -11,8 +11,7 @@ void main(){
 }
 
 void rev_string(char s[]){
-    int l = (sizeof(s) / sizeof(s[0])) - 1; // 最後のヌル文字を除く
-    for(int i = l ; i >= 0; i--){
+    for(int i = (sizeof(s) / sizeof(s[0])) - 1 ; i >= 0; i--){
         printf("%c", s[i]);
     }
     puts("");
