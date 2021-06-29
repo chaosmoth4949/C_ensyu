@@ -13,7 +13,7 @@ void main(){
 }
 
 int str_char(const char s[], char c){
-    for(int i = 0; i < (sizeof(s) / sizeof(s[0])) - 1; i++){
+    for(int i = 0; s[i] != '\0'; i++){
         if(s[i] == c) return i;
     }
     return -1;

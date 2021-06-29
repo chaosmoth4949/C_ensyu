@@ -12,8 +12,13 @@ void main(){
 }
 
 void del_digit(char s[]){
-    for(int i = 0 ; i < (sizeof(s) / sizeof(s[0]) - 1); i++){
-        if('0' <= s[i] && s[i] <= '9') s[i] = '\0';
+    int j = 0;
+    for(int i = 0 ; s[i] != '\0'; i++){
+        s[j] = s[i];
+        if(s[i] < '0' || s[i] > '9') {
+            j++;
+        }
     }
+    s[j] = '\0';
     puts("");
 }
