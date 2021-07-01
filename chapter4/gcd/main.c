@@ -12,8 +12,9 @@ int main(){
 }
 
 int gcd(int x, int y){
-    int a = x % y;
-    if(a == 0) return y; // 最大公約数を発見
-    if(x < y) return 1;
-    return gcd(y, a); // 最大公約数をリレー
+    if(y == 0){
+        return x;
+    } else {
+        return gcd(y, x % y); // 最大公約数をリレー
+    }
 }

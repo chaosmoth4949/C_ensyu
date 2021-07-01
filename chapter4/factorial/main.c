@@ -18,7 +18,7 @@ int factorial(int x){
 int factorial2(int x){
     int origin_x = x;
     for(int i = 1; i < origin_x ; i++){
-        x *= (origin_x - i); // x = x * (x - 1) * (x - 2) * ... * 1
+        x *= i; // x = x * (x - 1) * (x - 2) * ... * 1
     }
     return x;
 }
