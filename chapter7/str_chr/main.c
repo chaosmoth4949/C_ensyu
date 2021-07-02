@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX_SIZE 20
 
-int str_chnum(const char *s, char c);
+char *str_chr(const char *s, int c);
 
 void main(){
     char c;
@@ -11,13 +11,13 @@ void main(){
     printf("input string(MAX : %d letters) : ", MAX_SIZE);
     scanf("%s", &a);
     char *s = &a[0];
-    printf("文字列に含まれる %c の個数は %d\n", c, str_chnum(s, c));
+    printf("%c\n", *(str_chr(s, c)));
 }
 
-int str_chnum(const char *s, char c){
-    int n = 0;
+char *str_chr(const char *s, int c){
+    char *empty;
     for(int i = 0; *(s + i) != '\0'; i++){
-        if(*(s + i) == c) n++;
+        if(*(s + i) == c) return s + i;
     }
-    return n;
+    return empty;
 }
