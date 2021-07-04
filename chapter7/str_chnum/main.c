@@ -5,9 +5,9 @@
 int str_chnum(const char *s, char c);
 
 void main(){
-    char a[MAX_SIZE];
+    char s[MAX_SIZE];
     printf("input string(MAX : %d letters) : ", MAX_SIZE);
-    scanf("%s", &a);
+    scanf("%s", &s);
 
     fflush(stdin);
 
@@ -17,14 +17,14 @@ void main(){
 
     // printf("string : %s, char : %c", a, c);
 
-    printf("文字列に含まれる %c の個数は %d\n", c, str_chnum(a, c));
+    printf("文字列に含まれる %c の個数は %d\n", c, str_chnum(s, c));
 }
 
 int str_chnum(const char *s, char c){
     // printf("string : %s, char : %c", s, c);
 
     int n = 0;
-    for(const char *a = s; *a; a++){
+    for(const char *p = s; *p; p++){
         if(*a == c) n++;
     }
     return n;

@@ -1,23 +1,27 @@
 #include <stdio.h>
+#include <unistd.h>
 #define MAX_SIZE 20
 
 char *str_chr(const char *s, int c);
 
 void main(){
+    char s[MAX_SIZE];
+    printf("input string(MAX : %d letters) : ", MAX_SIZE);
+    scanf("%s", &s);
+
+    fflush(stdin);
+
     char c;
     printf("input char : ");
-    scanf("%s", &c);
-    char a[MAX_SIZE];
-    printf("input string(MAX : %d letters) : ", MAX_SIZE);
-    scanf("%s", &a);
-    char *s = &a[0];
-    printf("%c\n", *(str_chr(s, c)));
+    scanf("%c", &c);
+
+    printf("文字列の中で %c を指すポインタは %p\n", c, *(str_chr(s, c)));
 }
 
 char *str_chr(const char *s, int c){
     char *empty;
-    for(int i = 0; *(s + i) != '\0'; i++){
-        if(*(s + i) == c) return s + i;
+    for(const char *p = s; *p; p++){
+        if(*p == c) return p;
     }
     return empty;
 }

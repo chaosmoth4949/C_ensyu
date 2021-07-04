@@ -4,16 +4,15 @@
 void put_string(const char *s);
 
 void main(){
-    char a[MAX_SIZE];
+    char s[MAX_SIZE];
     printf("input string(MAX : %d letters) : ", MAX_SIZE);
-    scanf("%s", &a);
-    char *s = &a[0];
-    printf("%s\n", s);
+    scanf("%s", &s);
+    put_string(s);
 }
 
 void put_string(const char *s){
-    for(int i = 0; *(s + i) != '\0'; i++){
-        printf("%c", *(s + i));
+    for(const char *p = s; *p; p++){
+        printf("%c", *p);
     }
     puts("");
 }

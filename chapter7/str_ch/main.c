@@ -5,22 +5,22 @@
 int str_ch(const char *s, char ch);
 
 void main(){
-    char a[MAX_SIZE];
+    char s[MAX_SIZE];
     printf("input string(MAX : %d letters) : ", MAX_SIZE);
-    scanf("%s", &a);
+    scanf("%s", &s);
 
     fflush(stdin);
 
     char ch;
     printf("input ch : ");
     scanf("%c", &ch);
-    printf("最初の %c の添字は %d\n", ch, str_ch(a, ch));
+    printf("最初の %c の添字は %d\n", ch, str_ch(s, ch));
 }
 
 int str_ch(const char *s, char ch){
-    for(int i = 0; i < MAX_SIZE; i++){
-        if(*(s + i) == ch){
-            return i;
+    for(const char *p = s; *p; p++){
+        if(*p == ch){
+            return (p - s);
         }
     }
     return -1;
