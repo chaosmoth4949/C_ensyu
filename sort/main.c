@@ -6,6 +6,7 @@ void outputarray(size_t, int[]);
 void bubble_sort(size_t, int[]);
 void insertion_sort(size_t, int[]);
 void merge_sort(int[], int, int);
+void quick_sort(int[], int, int);
 void swap(int[], int, int);
 
 int main() {
@@ -26,10 +27,14 @@ int main() {
     printf("<insertion_sort>\n");
     insertion_sort(size, array);
     outputarray(size, array);
-    */
 
     printf("<merge_sort>\n");
     merge_sort(array, 0, size - 1);
+    outputarray(size, array);
+    */
+
+    printf("<quick_sort>\n");
+    quick_sort(array, 0, size - 1);
     outputarray(size, array);
 
     free(array);
@@ -103,7 +108,7 @@ void merge_sort(int array[], int left, int right){
         if(i <= mid){
             tmp_l[i - left] = array[i];
         } else {
-            tmp_r[i - mid + 1] = array[i];
+            tmp_r[i - mid - 1] = array[i];
         }
     }
 
@@ -121,19 +126,32 @@ void merge_sort(int array[], int left, int right){
             array[j] = tmp_r[r_cnt++];
         }
     }
-    /*
-    f(size > 1){
-        for(int i = 0; i < size; i++){
-            if(i < l_size){
-                left[i] = array[i];
-            } else {
-                right[i - a] = array[i];
-            }
+}
+
+void quick_sort(int array[], int left, int right){
+    int ori_left = left;
+    int ori_right = right;
+
+    int pivot = array[0];
+
+    while(1){
+        while(array[left] < pivot && left < right){
+            left ++;
         }
-        merge_sort(a,left);
-        merge_sort(b,right);
+
+        while(array[right] >= pivot && left < right){
+            right --;
+        }
+
+        if(left >= right){
+            quick_sort(array, ori_left, right);
+            quick_sort(array, left, ori_right);
+            break;
+        }
+
+         swap(array, left, right);
     }
-    */
+
 }
 
 void swap(int array[], int a, int b){
