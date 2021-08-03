@@ -36,4 +36,5 @@ void main(){
 void adjust_student(Student *s){
     if(s->height < 180) s->height = 180;
     if(s->weight > 80.0) s->weight = 80.0;
+    printf("%p, %p, %p, %p\n",s, &(s->name),&(s->height),&(s->weight));
 }

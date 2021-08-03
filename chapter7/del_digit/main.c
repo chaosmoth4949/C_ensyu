@@ -6,7 +6,7 @@ void del_digit(char *str);
 void main(){
     char s[MAX_SIZE];
     printf("input string(MAX : %d letters) : ", MAX_SIZE);
-    scanf("%s", &s);
+    scanf("%s", s);
 
     del_digit(s);
 
