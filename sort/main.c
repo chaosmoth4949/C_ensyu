@@ -129,27 +129,31 @@ void merge_sort(int array[], int left, int right){
 }
 
 void quick_sort(int array[], int left, int right){
+    if(left >= right) return;
+
     int ori_left = left;
     int ori_right = right;
 
-    int pivot = array[0];
+    int pivot = array[left];
 
     while(1){
-        while(array[left] < pivot && left < right){
+        while(array[left] < pivot && left < ori_right){
             left ++;
         }
 
-        while(array[right] >= pivot && left < right){
+        while(array[right] >= pivot && ori_left < right){
             right --;
         }
 
         if(left >= right){
+            if(left == right) left++;
             quick_sort(array, ori_left, right);
             quick_sort(array, left, ori_right);
             break;
         }
 
-         swap(array, left, right);
+         swap(array, left++, right--);
+
     }
 
 }
